@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake Virus Alert</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #0078D4;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+        }
+        .container {
+            background-color: white;
+            padding: 20px;
+            border: 1px solid #e3e3e3;
+            border-radius: 5px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+            width: 400px;
+            text-align: center;
+            position: relative;
+        }
+        .header {
+            background-color: #ff3b30;
+            color: white;
+            padding: 15px;
+            border-radius: 5px 5px 0 0;
+            font-size: 20px;
+        }
+        .icon {
+            font-size: 60px;
+            margin: 20px 0;
+            color: #ff3b30;
+        }
+        .warning {
+            font-weight: bold;
+            font-size: 18px;
+            color: #333;
+            margin: 15px 0;
+        }
+        p {
+            margin: 10px 0;
+            color: #666;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #0078D4;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            cursor: pointer;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #0056A1;
+        }
+        /* Loading screen styles */
+        .loading {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 100vw;
+            background-color: #f3f3f3;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 999;
+        }
+        .loader {
+            border: 8px solid #f3f3f3;
+            border-top: 8px solid #3498db;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            animation: spin 2s linear infinite;
+            margin-bottom: 20px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        /* Video container styles */
+        .video-container {
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            width: 100%;
+            background-color: black;
+            z-index: 1000;
+        }
+        iframe {
+            width: 80%;
+            height: 80%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="header">Error</div>
+    <div class="icon">&#9888;</div> <!-- Warning icon -->
+    <div class="warning">Virus Detected!</div>
+    <p>Your computer has been infected with a dangerous virus.</p>
+    <p>Please click the button below to initiate a full system scan and remove the virus.</p>
+    <button onclick="initiateScan()">Scan Now</button>
+</div>
+
+<div class="loading">
+    <div class="loader"></div>
+    <p>Scanning... Please wait.</p>
+</div>
+
+<div class="video-container">
+    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+
+<script>
+    function initiateScan() {
+        // Hide the main alert and show the loading screen
+        document.querySelector('.container').style.display = 'none';
+        document.querySelector('.loading').style.display = 'flex';
+
+        // Simulate a loading process
+        setTimeout(() => {
+            document.querySelector('.loading').style.display = 'none';
+            document.querySelector('.video-container').style.display = 'flex'; // Show video
+        }, 3000); // Loading time in milliseconds
+    }
+</script>
+
+</body>
+</html>
